@@ -1,0 +1,232 @@
+package com.company;
+import java.util.Formattable;
+import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        File Meat = new File("D://Meat");
+        File sausage = new File(Meat,"/sausage");
+        File forcemeat = new File(Meat,"/forcemeat");
+        File hamon = new File(Meat,"/hamon");
+
+        Meat.mkdir();
+        sausage.mkdir();
+        forcemeat.mkdir();
+        hamon.mkdir();
+
+        File Dairy = new File("D://Dairy");
+        File cheeses = new File(Dairy,"/cheeses");
+        File yoghurts = new File(Dairy,"/yoghurts");
+
+        File additives = new File(yoghurts,"/additives");
+        File yagotinsky = new File("D://Dairy/yoghurts/w_additives/yagotinsky");
+        File chudo = new File(additives,"/chudo");
+        File blue = new File(cheeses,"/blue");
+        File other = new File(cheeses,"/other");
+
+
+
+        Dairy.mkdir();
+        cheeses.mkdir();
+        yoghurts.mkdir();
+        yagotinsky.mkdir();
+        additives.mkdir();
+        yoghurts.mkdir();
+        chudo.mkdir();
+        blue.mkdir();
+
+        other.mkdir();
+
+        // a
+        File w_additives = new File("D://Dairy/yoghurts/w_additives");
+        w_additives.mkdir();
+
+        // б
+
+        File b = new File(w_additives,"/../../../Meat/forcemeat"); // 2.1.1 - 1.2
+        File b1 = new File(b,"/../../Dairy/yoghurts/additives"); // 1.2 - 2.1.2
+        File b2 = new File(b1,"/../../cheeses"); // 2.1.2 - 2.2
+        File b3 = new File(b2,"/../..");//2.2 - 1
+        File b4 = new File(b3,"/Dairy/cheeses/other"); //1-2.2.2
+        File b5 = new File(b4,"/../../yoghurts/additives/chudo");//2.2.2- 2.1.2.1
+        File b6 = new File(b5,"/../../w_additives/yagotinsky"); // 2.1.2.1 - 2.1.1.1
+
+
+        File f3 = new File(b6,"0.75l.txt");
+
+       /* Scanner name = new Scanner(System.in);
+
+     for (int i = 1; i<4;i++) {
+         System.out.println("Введіть назву файлу "+ i +":" );
+         if (name.hasNextLine()) {
+             String filename = name.nextLine();
+             File f1 = new File(b6, filename + ".txt");
+             f1.createNewFile();
+             System.out.println("Створено файл"+ i+" з ім'ям " + filename);
+
+         } else {
+             System.out.println("Введіть корректне ім'я");
+         }*/
+
+        //в
+
+        File c = new File(b6,"/../../additives/../../../Meat/sausage/../hamon");
+       /* Scanner name1 = new Scanner(System.in);
+
+        for (int i = 1; i<3;i++) {
+            System.out.println("Введіть назву файлу " + i + ":");
+            if (name1.hasNextLine()) {
+                String filename1 = name1.nextLine();
+                File f2 = new File(c, filename1 + ".txt");
+                f2.createNewFile();
+                System.out.println("Створено файл" + i + " з ім'ям " + filename1);
+
+            } else {
+                System.out.println("Введіть корректне ім'я");
+            }
+        }*/
+
+        //г
+
+        File d = new File(c,"/../../Dairy/yoghurts/../../Meat/sausage/./../../Dairy/yoghurts/w_additives/../../cheeses/other");
+        File d1 = new File(d,"Feta.txt");
+       /* Scanner name2 = new Scanner(System.in);
+
+        for (int i = 1; i<3;i++) {
+            System.out.println("Введіть назву файлу " + i + ":");
+            if (name2.hasNextLine()) {
+                String filename2 = name2.nextLine();
+                File f2 = new File(d, filename2 + ".txt");
+                f2.createNewFile();
+                System.out.println("Створено файл" + i + " з ім'ям " + filename2);
+
+            } else {
+                System.out.println("Введіть корректне ім'я");
+            }
+        }*/
+
+        //д
+        File e = new File(d,"/./../../../Meat/focrcemeat/../../Dairy/yoghurts/../cheeses/blue");
+        File e1 = new File(e,"Dona Blu.txt");
+      /*Scanner name3 = new Scanner(System.in);
+
+        for (int i = 1; i<3;i++) {
+            System.out.println("Введіть назву файлу " + i + ":");
+            if (name3.hasNextLine()) {
+                String filename3 = name3.nextLine();
+                File f3 = new File(e, filename3 + ".txt");
+                f3.createNewFile();
+                System.out.println("Створено файл" + i + " з ім'ям " + filename3);
+
+            } else {
+                System.out.println("Введіть корректне ім'я");
+
+            }
+        }*/
+
+        //е
+
+        File g = new File(e,"/../../../Meat/./../../../Meat/hamon/../../Dairy/yoghurts/w_additives/yagotinsky/../../../cheeses/other");
+        File g1 = new File(g,"Bree.txt");
+        File g2 = new File(g,"Feta.txt");
+        File g3 = new File(g,"Camamber.txt");
+        File g4= new File(g,"Golland.txt");
+
+        g1.createNewFile();
+        g2.createNewFile();
+        g3.createNewFile();
+        g4.createNewFile();
+
+
+        //є
+
+        g1.delete();
+        g4.delete();
+
+        //ж
+
+        /*if(w_additives.exists()){
+            System.out.println("Каталог існує");
+        }*/
+
+        //з
+        /*
+        System.out.println(g2.getName());
+        System.out.println(f3.isFile());
+        System.out.println(e1.getAbsolutePath());
+        System.out.println(d1.length());
+        */
+
+        //е
+        /*   try(BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("D://Dairy/cheeses/blue/Dona Blu.txt")))
+        {
+
+            String text;
+            while(!(text=br.readLine()).equals("ESC")){
+
+                bw.write(text + "\n");
+                bw.flush();
+            }
+        }*/
+
+        try(BufferedReader br = new BufferedReader(new FileReader("D://Dairy/cheeses/blue/Dona Blu.txt")))
+        {
+            
+            String s;
+            while((s=br.readLine())!=null){
+
+                System.out.println(s);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
